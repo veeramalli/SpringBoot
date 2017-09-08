@@ -1,21 +1,26 @@
 package com.sprinboot.demo.entity;
 
+import org.springframework.stereotype.Component;
+
+@Component("Student")
 public class Student {
 	
-	private int id;
+	public Student(){};
+	
+	private int eid;
 	private String name;
 	
-	public Student(int id, String name) {
+	public Student(int eid, String name) {
 		super();
-		this.id = id;
+		this.eid = eid;
 		this.name = name;
 	}
 	
 	public int getId() {
-		return id;
+		return eid;
 	}
 	public void setId(int id) {
-		this.id = id;
+		this.eid = id;
 	}
 	public String getName() {
 		return name;
@@ -23,6 +28,5 @@ public class Student {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
 	
 }

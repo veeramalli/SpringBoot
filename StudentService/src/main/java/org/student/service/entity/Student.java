@@ -1,31 +1,54 @@
 package org.student.service.entity;
 
-import org.springframework.stereotype.Component;
+import java.io.Serializable;
 
-@Component("Student")
-public class Student {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
+
+
+@Entity
+@Table(name="student")
+@XmlRootElement(name = "Student")
+public class Student implements Serializable{
 	
+	private static final long serialVersionUID = 1L;
+
 	public Student(){};
 	
-	private int eid;
-	private String name;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
 	
-	public Student(int id, String name) {
-		this.eid = id;
-		this.name = name;
-	}
+	private int id;
+	private String name;
+	private String course;
 	
 	public int getId() {
-		return eid;
+		return id;
 	}
 	public void setId(int id) {
-		this.eid = id;
+		this.id = id;
 	}
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	public String getCourse() {
+		return course;
+	}
+	public void setCourse(String course) {
+		this.course = course;
+	}
+	public Student(int id, String name, String course) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.course = course;
 	}
 	
 }

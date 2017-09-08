@@ -2,9 +2,12 @@ package com.sprinboot.demo.dao.impl;
 
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
 import com.sprinboot.demo.dao.StudentDao;
 import com.sprinboot.demo.entity.Student;
 
+@Component("StudentDaoImpl")
 public class StudentDaoImpl implements StudentDao {
 
 	@Override

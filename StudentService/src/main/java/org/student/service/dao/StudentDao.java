@@ -1,19 +1,19 @@
 package org.student.service.dao;
 
-import java.util.List;
+import java.io.Serializable;
 
-import org.springframework.stereotype.Component;
 import org.student.service.entity.Student;
 
-@Component("StudentDao")
 public interface StudentDao {
 	
-	public Student get(Student student);
+	public Student get(int id);
 	
 	public Student update(Student student);
 	
-	public int delete(Student student);
+	public boolean delete(int id);
 	
-	public List<Student> search(Student student);
+	public Iterable<Student> findAll();
+	
+	public Iterable<Student> find(Iterable<Serializable> ids);
 	
 }

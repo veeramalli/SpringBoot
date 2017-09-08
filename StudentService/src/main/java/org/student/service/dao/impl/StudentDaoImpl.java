@@ -1,36 +1,48 @@
 package org.student.service.dao.impl;
 
-import java.util.List;
+import java.io.Serializable;
 
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.student.service.dao.StudentDao;
 import org.student.service.entity.Student;
+import org.student.service.repository.StudentRepository;
 
-@Component("StudentDaoImpl")
+@Repository
 public class StudentDaoImpl implements StudentDao {
 
+	@Autowired
+	private StudentRepository studentRepository;
+		
 	@Override
-	public Student get(Student student) {
-		// TODO Auto-generated method stub
-		return new Student(1000, "Sures11h");
+	public Student get(int id) {
+		return studentRepository.findOne(id);
 	}
 
 	@Override
 	public Student update(Student student) {
-		// TODO Auto-generated method stub
-		return student;
+		return studentRepository.save(student);
 	}
 
 	@Override
-	public int delete(Student student) {
-		// TODO Auto-generated method stub
-		return 1;
+	public boolean delete(int id) {
+		boolean flag = true;
+		try {
+			studentRepository.delete(id);
+		} catch (Exception e) {
+			flag = false;
+		} 
+		return flag;
+	}
+	
+	@Override
+	public Iterable<Student> find(Iterable<Serializable> ids) {
+		return studentRepository.findAll(ids);
 	}
 
 	@Override
-	public List<Student> search(Student student) {
-		// TODO Auto-generated method stub
-		return null;
+	public Iterable<Student> findAll() {
+		return studentRepository.findAll();
 	}
 
 }

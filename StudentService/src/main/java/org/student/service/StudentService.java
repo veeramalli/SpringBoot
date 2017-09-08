@@ -1,11 +1,19 @@
 package org.student.service;
 
-import org.springframework.stereotype.Component;
+import java.io.Serializable;
+
 import org.student.service.entity.Student;
 
-@Component
 public interface StudentService {
 
-	public Student getStudent(Student student);
+	public Student get(int id);
+	
+	public Student update(Student student);
+	
+	public boolean delete(int id);
+	
+	public Iterable<Student> find(Iterable<Serializable> ids);
+	
+	public Iterable<Student> findAll();
 	
 }
