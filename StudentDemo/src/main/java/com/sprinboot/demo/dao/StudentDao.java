@@ -2,11 +2,11 @@ package com.sprinboot.demo.dao;
 
 import java.util.List;
 
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Component;
 
 import com.sprinboot.demo.entity.Student;
 
-@Repository
+@Component("StudentDao")
 public interface StudentDao {
 	
 	public Student get(Student student);
